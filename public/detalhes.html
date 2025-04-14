@@ -14,17 +14,35 @@
     </style>
     <script>
         function formSubmit() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const itemId = parseInt(urlParams.get('id'));
             let fnumber = parseFloat(document.getElementById("firstnumber").value);
             let snumber = parseFloat(document.getElementById("secondnumber").value);
 
-            let soma = fnumber + snumber;
-            document.getElementById("result").textContent = soma;
+            switch (itemId) {
+                case 1:
+                    let soma = fnumber + snumber;
+                    document.getElementById("result").textContent = soma;
+                    break;
+                case 2:
+                    let subtracao = fnumber - snumber;
+                    document.getElementById("result").textContent = subtracao;
+                    break;
+                case 3:
+                    let divisao = fnumber / snumber;
+                    document.getElementById("result").textContent = divisao;
+                    break;
+                case 4:
+                    let multiplicacao = fnumber * snumber;
+                    document.getElementById("result").textContent = multiplicacao;
+                    break;
+            }
         }
     </script>
 </head>
 <body class="p-3 mb-2 bg-info">
     <main class="d-flex flex-column mb-3">
-        <p>Calculadora de Soma</p>
+        <p>Calculadora</p>
         <label for="firstnumber">Primeiro Número: </label>
         <input type="number" id="firstnumber">
         <label for="secondnumber">Segundo Número: </label>
